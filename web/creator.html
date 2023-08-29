@@ -12,7 +12,7 @@
          <h1>page de dessin</h1>
          <div>
             <input id="student" type="text"
-               placeholder="type your name"/>
+               placeholder="enregistrez votre nom"/>
             <span id="instructions"></span>
             <button id="advanceBtn" onclick="start();">
                START
@@ -28,8 +28,7 @@
 
       <script>
          let index=0;
-         const labels=["car","fish","house","tree",
-            "bicycle","guitar","pencil","clock"];
+         const labels=["Voiture","Poisson","Maison","Arbre"];
 
          const data={
             student:null,
@@ -42,21 +41,21 @@
 
          function start(){
             if(student.value==""){
-               alert("Please type your name first!");
+               alert("Votre nom svp!");
                return;
             }
             data.student=student.value;
             student.style.display="none";
             sketchPadContainer.style.visibility="visible";
             const label=labels[index];
-            instructions.innerHTML="Please draw a "+label;
-            advanceBtn.innerHTML="NEXT";
+            instructions.innerHTML="Déssinez un(e) "+label;
+            advanceBtn.innerHTML="Suivant";
             advanceBtn.onclick=next;
          }
 
          function next(){
             if(sketchPad.paths.length==0){
-               alert("Draw something first!");
+               alert("Déssinez qlqchose d'abord!");
                return;
             }
 
@@ -66,11 +65,11 @@
             index++;
             if(index<labels.length){
                const nextLabel=labels[index];
-               instructions.innerHTML="Please draw a "+nextLabel;
+               instructions.innerHTML="Déssinez un(e) "+nextLabel;
             }else{
                sketchPadContainer.style.visibility="hidden";
-               instructions.innerHTML="Thank you!";
-               advanceBtn.innerHTML="SAVE";
+               instructions.innerHTML="Merci!";
+               advanceBtn.innerHTML="Enregistrer";
                advanceBtn.onclick=save;
             }
          }
